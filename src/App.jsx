@@ -34,8 +34,10 @@ const songs = [
     artist: "Stephen Sanchez",
     mood: "soft, nostalgic & dreamy",
     youtubeId: "GxldQ9eX2wo",
-    youtubeUrl: "https://www.youtube.com/watch?v=GxldQ9eX2wo",
-    thumbnail: "https://i.ytimg.com/vi/GxldQ9eX2wo/hqdefault.jpg",
+    youtubeUrl:
+      "https://www.youtube.com/watch?v=GxldQ9eX2wo",
+    thumbnail:
+      "https://i.ytimg.com/vi/GxldQ9eX2wo/hqdefault.jpg",
   },
   {
     id: "die-with-a-smile",
@@ -43,8 +45,10 @@ const songs = [
     artist: "Lady Gaga & Bruno Mars",
     mood: "romantic & cinematic",
     youtubeId: "kPa7bsKwL-c",
-    youtubeUrl: "https://www.youtube.com/watch?v=kPa7bsKwL-c",
-    thumbnail: "https://i.ytimg.com/vi/kPa7bsKwL-c/hqdefault.jpg",
+    youtubeUrl:
+      "https://www.youtube.com/watch?v=kPa7bsKwL-c",
+    thumbnail:
+      "https://i.ytimg.com/vi/kPa7bsKwL-c/hqdefault.jpg",
   },
   {
     id: "perfect",
@@ -52,8 +56,10 @@ const songs = [
     artist: "Ed Sheeran",
     mood: "romantic, warm & timeless",
     youtubeId: "2Vv-BfVoq4g",
-    youtubeUrl: "https://www.youtube.com/watch?v=2Vv-BfVoq4g",
-    thumbnail: "https://i.ytimg.com/vi/2Vv-BfVoq4g/hqdefault.jpg",
+    youtubeUrl:
+      "https://www.youtube.com/watch?v=2Vv-BfVoq4g",
+    thumbnail:
+      "https://i.ytimg.com/vi/2Vv-BfVoq4g/hqdefault.jpg",
   },
 ];
 
@@ -119,42 +125,42 @@ const balloons = [
 const starMemories = [
   {
     id: 1,
-    photo: 1,
+    image: "/photos/star1.jpeg",
     caption: "One of those moments I'll always remember ✨",
   },
   {
     id: 2,
-    photo: 2,
+    image: "/photos/star2.jpeg",
     caption: "A memory that still makes me smile 🤍",
   },
   {
     id: 3,
-    photo: 3,
+    image: "/photos/star3.jpeg",
     caption: "Proof that the simplest moments can mean the most 🌙",
   },
   {
     id: 4,
-    photo: 4,
+    image: "/photos/star4.jpeg",
     caption: "A little piece of our beautiful chaos 🫶🏻",
   },
   {
     id: 5,
-    photo: 5,
+    image: "/photos/star5.jpeg",
     caption: "This one deserves a permanent place in my memories 💗",
   },
   {
     id: 6,
-    photo: 6,
+    image: "/photos/star6.jpeg",
     caption: "Some memories never really get old ✨",
   },
   {
     id: 7,
-    photo: 7,
+    image: "/photos/star7.jpeg",
     caption: "A moment worth keeping forever 🧿",
   },
   {
     id: 8,
-    photo: 8,
+    image: "/photos/star8.jpeg",
     caption: "And somehow, this became one of my favourites 🌷",
   },
 ];
@@ -357,7 +363,7 @@ function App() {
       {/* =========================================
           BACKGROUND MUSIC
           Invisible YouTube player
-          ========================================= */}
+      ========================================= */}
       {selectedSong && (
         <iframe
           key={selectedSong.youtubeId}
@@ -1027,9 +1033,17 @@ function App() {
                 src={
                   modal.type === "balloon"
                     ? photos[modal.data.photo - 1]
-                    : photos[modal.data.photo - 1]
+                    : modal.data.image
                 }
                 alt="Memory"
+                style={
+                  modal.type === "star"
+                    ? {
+                        objectFit: "contain",
+                        objectPosition: "center",
+                      }
+                    : undefined
+                }
               />
             </div>
 
